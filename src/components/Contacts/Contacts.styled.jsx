@@ -16,12 +16,14 @@ export const Contact = styled.div`
       position: relative;
       height: 25px;
 
+      margin: 0 auto;
       margin-bottom: 5px;
       display: flex;
       flex-direction: row;
       justify-content: space-between;
       align-items: center;
       padding-right: 70px;
+      max-width: 90vw;
 
       button {
         position: absolute;

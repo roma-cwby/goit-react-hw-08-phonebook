@@ -1,10 +1,13 @@
 import { useEffect } from 'react';
 import { Section } from 'components/Section/Section';
-import { Forms } from 'components/Forms/Forms';
+import { Header } from 'components/Header/Header';
 import { Contacts } from 'components/Contacts/Contacts';
 import { useSelector, useDispatch } from 'react-redux';
 import { setFilter } from 'redux/filterSlice';
 import { fetchContacts, addContact, deleteContact } from 'redux/requests';
+import { Routes, Route } from 'react-router-dom';
+import { Register } from 'components/Register/Register';
+import { Login } from 'components/Login/Login';
 
 export const App = () => {
   const dispatch = useDispatch();
@@ -39,20 +42,24 @@ export const App = () => {
   }, [dispatch]);
 
   return (
-    <Section>
-      <Section title="Phonebook">
-        <Forms submit={addCont} />
-      </Section>
+    <Routes>
+      <Route path="/" element={<Section />}>
+        <Route path="register" element={<Register />} />
 
-      {contacts.length > 0 && (
-        <Section title="Contacts">
-          <Contacts
-            contacts={filterContacts}
-            onSearch={selectedContacts}
-            onDelete={deleteCont}
-          />
-        </Section>
-      )}
-    </Section>
+        <Route path="login" element={<Login />} />
+
+        <Route
+          path="contacts"
+          element={
+            <Contacts
+              submit={addCont}
+              contacts={filterContacts}
+              onSearch={selectedContacts}
+              onDelete={deleteCont}
+            />
+          }
+        />
+      </Route>
+    </Routes>
   );
 };

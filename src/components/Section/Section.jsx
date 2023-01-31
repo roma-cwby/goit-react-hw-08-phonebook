@@ -1,11 +1,13 @@
 import propTypes from 'prop-types';
+import { Header } from 'components/Header/Header';
+import { Outlet } from 'react-router-dom';
 
 export const Section = ({ title, children }) => {
   return (
-    <section>
-      {title && <h2>{title}</h2>}
-      {children}
-    </section>
+    <div>
+      <Header>Header</Header>
+      <Outlet />
+    </div>
   );
 };
 
