@@ -8,6 +8,7 @@ import { Login } from 'components/Login/Login';
 import { PublicRoute } from 'components/PublicRoute';
 import { PrivateRoute } from 'components/PrivateRoute';
 import { refreshUser } from 'redux/auth/operations';
+import { AiFillPhone } from 'react-icons/ai';
 
 export const App = () => {
   const dispatch = useDispatch();
@@ -21,6 +22,15 @@ export const App = () => {
     !isRefreshing && (
       <Routes>
         <Route path="/" element={<Section />}>
+          <Route
+            path="/"
+            element={
+              <PublicRoute
+                component={<AiFillPhone className="phone" />}
+                redirectTo="/contacts"
+              />
+            }
+          />
           <Route
             path="register"
             element={
@@ -42,6 +52,7 @@ export const App = () => {
             }
           />
         </Route>
+        <Route path="*" element={<Section />} />
       </Routes>
     )
   );

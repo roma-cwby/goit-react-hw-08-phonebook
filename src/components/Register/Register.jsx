@@ -18,20 +18,18 @@ export const Register = () => {
 
   return (
     <Form onSubmit={handleSubmit}>
-      <label htmlFor="name">Name</label>
       <input
         id="name"
         type="text"
         name="name"
         pattern="^[a-zA-Zа-яА-Я]+(([' -][a-zA-Zа-яА-Я ])?[a-zA-Zа-яА-Я]*)*$"
         required
+        placeholder="Name"
       />
 
-      <label htmlFor="email">Email</label>
-      <input type="email" name="email" required />
+      <input type="email" name="email" required placeholder="Email" />
 
-      <label htmlFor="password">Password</label>
-      <input type="password" name="password" required />
+      <input type="password" name="password" required placeholder="Password" />
 
       <button type="submit">Register</button>
     </Form>

@@ -2,6 +2,7 @@ import { StyledHeader, HeaderHav } from './Header.styled';
 import { useSelector } from 'react-redux';
 import { useDispatch } from 'react-redux';
 import { logOut } from 'redux/auth/operations';
+import { AiFillPhone } from 'react-icons/ai';
 
 export const Header = () => {
   const isLoggedIn = useSelector(state => state.auth.isLoggedIn);
@@ -16,7 +17,9 @@ export const Header = () => {
 
   return isLoggedIn ? (
     <StyledHeader>
-      <p>{email}</p>
+      <p>
+        <AiFillPhone /> {email}
+      </p>
       <button type="button" onClick={handleClick}>
         logout
       </button>
@@ -24,7 +27,7 @@ export const Header = () => {
   ) : (
     <StyledHeader>
       <HeaderHav to="/register">Register</HeaderHav>
-      <HeaderHav to="/login">Login</HeaderHav>
+      <HeaderHav to="/login">Log In</HeaderHav>
     </StyledHeader>
   );
 };

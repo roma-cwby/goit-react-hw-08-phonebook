@@ -1,5 +1,11 @@
 @import "modern-normalize";
 
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
 body {
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
@@ -37,4 +43,38 @@ button:focus {
 
 #root{
   text-align: center;
+  height: 100vh;
+  overflow-x: hidden;
+}
+
+.phone{
+  animation: phoneAnimation 1s linear infinite;
+  transform: translateY(30vh);
+  fill: green;
+  width: 20vh;
+  height: 20vh;
+}
+
+.phone::after{
+  display: flex;
+  content: '';
+  width: 1000px;
+  height: 1000px;
+  background-color: black;
+}
+
+@keyframes phoneAnimation {
+10%{
+  transform: translateY(30vh);
+}
+20%{
+  transform: translateY(30vh) rotateZ(-5deg);
+}
+30%{
+  transform: translateY(30vh) rotateZ(5deg);
+}
+40%{
+  transform: translateY(30vh) rotateZ(0);
+}
+
 }

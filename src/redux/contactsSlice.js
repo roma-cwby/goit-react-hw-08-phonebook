@@ -1,5 +1,6 @@
 import { createSlice } from '@reduxjs/toolkit';
 import { fetchContacts, addContact, deleteContact } from './requests';
+import { logIn } from './auth/operations';
 
 export const contactsSlice = createSlice({
   name: 'contacts',
@@ -10,6 +11,9 @@ export const contactsSlice = createSlice({
   },
 
   extraReducers: {
+    [logIn.pending](state) {
+      state.items = [];
+    },
     [fetchContacts.pending](state) {
       state.isLoading = true;
       state.error = null;
